@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- BS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="_css/pokemon.css">
+
+</head>
+
+<body>
+    <!-- 10. 設置一個表格，表頭欄位依序有圖片、說明、售價、數量、小計；最後一欄欄位名稱留空-->
+
+    <div class="container  m-auto text-center">
+        <table class="w-100">
+            <tr class=" ">
+                <th>圖片</th>
+                <th>屬性</th>
+                <th>售價</th>
+                <th>數量</th>
+                <th>小計</th>
+            </tr>
+
+
+            <!-- 種子 -->
+            <tr>
+                <td class="td_Name"><img src="/_image/01.png" alt="" class="img-fluid">#001-妙蛙種子</td>
+                <td>
+                    <span class="btn btn-A">草</span>
+                    <span class="btn btn-B">毒</span>
+                </td>
+                <td>550元</td>
+                <td class=" m-auto">
+                    <button class="btn-A" id="Plus" onclick="PlusBtn()">+</button>
+                    <input value="0" id="NumberA" type="text" class="w-50 " placeholder="購買數量" onchange="deliveryBtn()">
+                    <button class="btn-B" id="Minus" onclick="MinusBtn()">-</button>
+                </td>
+                <td class="text-left pl-3">
+                    <h6>購買數量：<span id="showNumber">0</span>隻</h6>
+                    <h6>總金額：<span id="showPrice">0</span>元</h6>
+                </td>
+            </tr>
+
+
+
+            <!-- 草 -->
+            <tr>
+                <td class="td_Name"><img src="/_image/04.png" alt="" class="img-fluid">#152-菊草葉</td>
+                <td>
+                    <span span class="btn btn-A">草</span>
+                    <!-- <span span class="btn btn-B">毒</span> -->
+                </td>
+                <td>600元</td>
+                <td>
+                    <button class="btn-A" id="Plus_B" onclick="PlusBtnB()">+</button>
+                    <input value="0" id="NumberB" type="text" class="w-50 " placeholder="購買數量"
+                        onchange="deliveryBtnB()">
+                    <button class=" btn-B" id="Minus_B" onclick="MinusBtnB()">-</button>
+                </td>
+                <td class="text-left pl-3">
+                    <h6>購買數量：<span id="showNumberB">0</span>隻</h6>
+                    <h6>總金額：<span id="showPriceB">0</span>元</h6>
+                </td>
+            </tr>
+
+            <!-- 木 -->
+            <tr>
+                <td class="td_Name"><img src="/_image/05.png" alt="" class="img-fluid">#252-木守宮</td>
+                <td>
+                    <span span class="btn btn-A">草</span>
+                    <!-- <span span class="btn btn-B">毒</span> -->
+                </td>
+                <td>650元</td>
+                <td>
+                    <button class="btn-A" id="Plus_B" onclick="PlusBtnC()">+</button>
+                    <input value="0" id="NumberC" type="text" class="w-50 " placeholder="購買數量"
+                        onchange="deliveryBtnC()">
+                    <button class=" btn-B" id="Minus_B" onclick="MinusBtnC()">-</button>
+                </td>
+                <td class="text-left pl-3">
+                    <h6>購買數量：<span id="showNumberC">0</span>隻</h6>
+                    <h6>總金額：<span id="showPriceC">0</span>元</h6>
+                </td>
+            </tr>
+
+
+        </table>
+
+
+        <br>
+        <button class="btn btn-B mx-2" id="delivery" onclick="finalBtn()">送出 </button>
+        <button class="btn btn-B mx-2" id="clear" onclick="ClearBtn()">清空 </button>
+
+
+
+
+        <script>
+
+            alert(
+                `商品目前數量：
+                ✿妙蛙種子 : 50隻
+                ✿菊草葉 ： 50隻
+                ✿木守宮 ： 50隻
+                `);
+
+            var totalPrice = 0;
+
+            // 輸入
+            function deliveryBtn() {
+                var PriceA = parseInt(document.getElementById('NumberA').value);
+                document.getElementById('showNumber').innerText = PriceA;
+                document.getElementById('showPrice').innerText = PriceA * 550;
+                if (isNaN(PriceA)) {
+                    document.getElementById('showNumber').innerText = 0;
+                    document.getElementById('showPrice').innerText = 0;
+                    return;
+                }
+
+
+                if (PriceA < 0) {
+                    document.getElementById('showNumber').innerText = 0;
+                    document.getElementById('showPrice').innerText = 0;
+                    return;
+                }
+
+
+
+            }
+
+            function deliveryBtnB() {
+                var PriceB = parseInt(document.getElementById('NumberB').value);
+                document.getElementById('showNumberB').innerText = PriceB;
+                document.getElementById('showPriceB').innerText = PriceB * 600;
+                if (isNaN(PriceB)) {
+                    document.getElementById('showNumberB').innerText = 0;
+                    document.getElementById('showPriceB').innerText = 0;
+                    return;
+                }
+
+                if (PriceB < 0) {
+                    document.getElementById('showNumberB').innerText = 0;
+                    document.getElementById('showPriceB').innerText = 0;
+                    return;
+                }
+            }
+
+            function deliveryBtnC() {
+                var PriceC = parseInt(document.getElementById('NumberC').value);
+                document.getElementById('showNumberC').innerText = PriceC;
+                document.getElementById('showPriceC').innerText = PriceC * 600;
+                if (isNaN(PriceC)) {
+                    document.getElementById('showNumberC').innerText = 0;
+                    document.getElementById('showPriceC').innerText = 0;
+                    return;
+                }
+
+                if (PriceC < 0) {
+                    document.getElementById('showNumberC').innerText = 0;
+                    document.getElementById('showPriceC').innerText = 0;
+                    return;
+                }
+            }
+
+
+
+
+
+
+
+            // 加號按鈕-種子
+            function PlusBtn() {
+                var PriceA = parseInt(document.getElementById('NumberA').value);
+                if (isNaN(PriceA)) {
+                    document.getElementById('showNumber').innerText = 0;
+                    document.getElementById('showPrice').innerText = 0;
+                    PriceA = 0;
+                }
+                PriceA = PriceA + 1
+                document.getElementById('NumberA').value = PriceA
+                document.getElementById('showNumber').innerText = PriceA;
+                document.getElementById('showPrice').innerText = PriceA * 550;
+
+
+            }
+
+            // 減號按鈕-種子
+            function MinusBtn() {
+                var PriceA = parseInt(document.getElementById('NumberA').value);
+                if (isNaN(PriceA)) {
+                    document.getElementById('showNumber').innerText = 0;
+                    document.getElementById('showPrice').innerText = 0;
+                    PriceA = 0;
+                }
+                PriceA = PriceA - 1;
+                if (PriceA < 0) {
+                    return;
+                }
+                document.getElementById('NumberA').value = PriceA;
+                document.getElementById('showNumber').innerText = PriceA;
+                document.getElementById('showPrice').innerText = PriceA * 550;
+
+
+
+
+            }
+
+
+            // 加號按鈕-草
+            function PlusBtnB() {
+
+                var PriceB = parseInt(document.getElementById('NumberB').value);
+                if (isNaN(PriceB)) {
+                    document.getElementById('showNumberB').innerText = 0;
+                    document.getElementById('showPriceB').innerText = 0;
+                    PriceB = 0;
+                }
+                PriceB = PriceB + 1
+                document.getElementById('NumberB').value = PriceB
+                document.getElementById('showNumberB').innerText = PriceB;
+                document.getElementById('showPriceB').innerText = PriceB * 600;
+            }
+
+            // 減號按鈕 - 草
+            function MinusBtnB() {
+
+                var PriceB = parseInt(document.getElementById('NumberB').value);
+                if (isNaN(PriceB)) {
+                    document.getElementById('showNumberB').innerText = 0;
+                    document.getElementById('showPriceB').innerText = 0;
+                    PriceB = 0;
+                }
+                PriceB = PriceB - 1
+
+                if (PriceB < 0) {
+                    return;
+                }
+
+                document.getElementById('NumberB').value = PriceB
+                document.getElementById('showNumberB').innerText = PriceB;
+                document.getElementById('showPriceB').innerText = PriceB * 600;
+
+
+            }
+            // 加號按鈕-木
+            function PlusBtnC() {
+
+                var PriceC = parseInt(document.getElementById('NumberC').value);
+                if (isNaN(PriceC)) {
+                    document.getElementById('showNumberC').innerText = 0;
+                    document.getElementById('showPriceC').innerText = 0;
+                    PriceC = 0;
+                }
+                PriceC = PriceC + 1
+                document.getElementById('NumberC').value = PriceC
+                document.getElementById('showNumberC').innerText = PriceC;
+                document.getElementById('showPriceC').innerText = PriceC * 650;
+            }
+
+            // 減號按鈕 - 木
+            function MinusBtnC() {
+
+                var PriceC = parseInt(document.getElementById('NumberC').value);
+                if (isNaN(PriceC)) {
+                    document.getElementById('showNumberC').innerText = 0;
+                    document.getElementById('showPriceC').innerText = 0;
+                    PriceC = 0;
+                }
+                PriceC = PriceC - 1
+
+                if (PriceC < 0) {
+                    return;
+                }
+
+                document.getElementById('NumberC').value = PriceC
+                document.getElementById('showNumberC').innerText = PriceC;
+                document.getElementById('showPriceC').innerText = PriceC * 650;
+
+
+            }
+
+
+            // 送出按鈕
+            function finalBtn() {
+                var PriceA = parseInt(document.getElementById('NumberA').value);
+                var PriceB = parseInt(document.getElementById('NumberB').value);
+                var PriceC = parseInt(document.getElementById('NumberC').value);
+
+
+                if (PriceA > 50 || PriceB > 50 || PriceC > 50) {
+                    alert('庫存不夠，請等待進貨');
+                    return;
+                }
+
+                else if (isNaN(PriceA) || isNaN(PriceB) || isNaN(PriceC)) {
+                    alert('不購買的品項，麻煩數量請填寫"0"隻');
+                    return;
+                }
+
+
+
+
+
+
+                if (PriceA < 0) {
+                    PriceA = 0;
+                }
+                if (PriceB < 0) {
+                    PriceB = 0;
+                }
+                if (PriceC < 0) {
+                    PriceC = 0;
+                }
+
+
+
+
+
+                var money = PriceA * 550 + PriceB * 600 + PriceC * 650
+                alert(`秒蛙種子${PriceA}隻
+                        \n菊草葉${ PriceB}隻
+                        \n木守宮${ PriceC}隻
+                        \n總共${ money}元`);
+
+
+
+
+
+            }
+
+
+
+            // 清除按鈕
+            function ClearBtn() {
+
+                document.getElementById('showNumber').innerText = 0;
+                document.getElementById('showPrice').innerText = 0;
+                document.getElementById('showNumberB').innerText = 0;
+                document.getElementById('showPriceB').innerText = 0;
+                document.getElementById('showNumberC').innerText = 0;
+                document.getElementById('showPriceC').innerText = 0;
+                document.getElementById('NumberA').value = 0;
+                document.getElementById('NumberB').value = 0;
+                document.getElementById('NumberC').value = 0;
+            }
+        </script>
+
+
+    </div>
+
+    <!-- 11. 依照表頭欄位順序建立一筆測試資料，其中，數量欄位可以填寫、最後一欄放上一個「確認」按鈕-->
+
+    <!-- 12. 點選按鈕後，將售價*數量，然後放回到小計欄位 -->
+
+</body>
+
+</html>
