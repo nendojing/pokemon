@@ -8,7 +8,96 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="pokemon.css">
 
-</head>
+    <style>
+        body {
+    font-family: "微軟正黑體";
+    /* background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
+    background-image: url("image/BG.jpg");
+    background-attachment: fixed;
+    background-size: contain;
+}
+table {
+    background-color: rgb(255, 255, 255);
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(119, 119, 119, 0.5);
+}
+td {
+    padding: 20px;
+}
+th {
+    background-color: rgb(49, 58, 57);
+    width: 20%;
+    height: 8vh;
+    color: white;
+}
+tr>td:first-child {
+    text-align: center;
+    padding-left: 40px;
+}
+img {
+    width: 90%;
+}
+th:last-child {
+    border-radius: 0px 20px 0px 0px;
+}
+th:first-child {
+    border-radius: 20px 0px 0px 0px;
+}
+.btn-class {
+    font-weight: bolder;
+    text-align: center;
+    background-color: transparent;
+    color: cadetblue;
+    width: 15%;
+    border-radius: 5px;
+    border: cadetblue 1px solid;
+}
+.btn-A {
+    background-color: #95ac5f;
+    border: none;
+    color: white;
+    padding: 0.375rem 0.75rem;
+    border-radius: 5px;
+}
+.btn-B {
+    background-color: rgb(49, 58, 57);
+    border: none;
+    color: white;
+    padding: 0.375rem 0.9rem;
+    border-radius: 5px;
+}
+.btn-B:hover {
+    background-color: #000000;
+    color: white;
+    transform: scale(1.1);
+}
+.btn-A:hover {
+    background-color: #66773e;
+    color: white;
+    transform: scale(1.1);
+}
+#NumberA,
+#NumberB,
+#NumberC {
+    border-radius: 5px;
+    border: #95ac5f 1px solid;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+}
+td {
+    margin: auto;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+.td_Name {
+    font-weight: bolder;
+    color: #363636;
+}
+    </style>
+    
+    </head>
 
 <body>
     <!-- 10. 設置一個表格，表頭欄位依序有圖片、說明、售價、數量、小計；最後一欄欄位名稱留空-->
